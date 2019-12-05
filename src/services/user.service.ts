@@ -1,7 +1,8 @@
 import { createUserFunc, 
         findAllUserFunc,
         findUserByIDFunc,
-        deleteUserByIDFunc } from "../main/user";
+        deleteUserByIDFunc,
+        userLoginFunc } from "../main/user";
 import { Request, Response } from "express";
 
 export async function createUser(req: Request, res: Response){
@@ -51,4 +52,27 @@ export async function deleteUserByID(req: Request, res: Response){
         ok : true,
         data : response
     });
+};
+
+export async function userLogin(req: Request, res: Response){
+    let data = req.body;
+    if(!data.username || !data.password ){
+        res.status(400).send({
+            ok : false,
+            msg : "parameters are not satisfied"
+        });
+    }else{
+        let response = await userLoginFunc(data);
+        if(!response){
+            res.status(400).send({
+                ok : false,
+                msg : "not found"
+            });
+        }else{
+            res.send({
+                ok : true,
+                data : response
+            });
+        }
+    }
 };

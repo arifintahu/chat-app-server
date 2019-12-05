@@ -24,3 +24,15 @@ export async function deleteUserByIDFunc(id){
     let result = await users.findByIdAndDelete(id);
     return(result);
 }
+
+export async function userLoginFunc(data){
+    let result = await users.findOne({
+        username : data.username,
+        password : data.password
+    });
+    if(!result){
+        return(false);
+    }else{
+        return(result);
+    }
+}

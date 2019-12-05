@@ -1,7 +1,8 @@
 import { createGroupFunc,
         findAllGroupFunc,
         findGroupByIDFunc,
-        deleteGroupByIDFunc } from "../main/group";
+        deleteGroupByIDFunc,
+        enterGroupFunc } from "../main/group";
 import { Request, Response } from "express";
 
 export async function createGroup(req: Request, res: Response){
@@ -17,6 +18,29 @@ export async function createGroup(req: Request, res: Response){
             res.status(400).send({
                 ok : false,
                 msg : "Groupname must be unique"
+            });
+        }else{
+            res.send({
+                ok : true,
+                data : response
+            });
+        }
+    }
+};
+
+export async function enterGroup(req: Request, res: Response){
+    let data = req.body;
+    if(!data.groupname){
+        res.status(400).send({
+            ok : false,
+            msg : "parameters are not satisfied"
+        });
+    }else{
+        let response = await enterGroupFunc(data);
+        if(!response){
+            res.status(400).send({
+                ok : false,
+                msg : "Groupname does not exist"
             });
         }else{
             res.send({

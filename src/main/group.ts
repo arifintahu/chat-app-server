@@ -10,6 +10,18 @@ export async function createGroupFunc(data){
     }
 };
 
+export async function enterGroupFunc(data){
+    let check = await groups.exists({ groupname : data.groupname });
+    if(check){
+        let result = await groups.find({
+            groupname : data.groupname
+        });
+        return(result[0]);
+    }else{
+        return(false);
+    }
+};
+
 export async function findAllGroupFunc(){
     let result = await groups.find();
     return(result);
