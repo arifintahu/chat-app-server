@@ -60,7 +60,7 @@ export async function findAllGroup(req: Request, res: Response){
 };
 
 export async function findGroupByID(req: Request, res: Response){
-    let id = req.params.Groupid;
+    let id = req.params.group_id;
     let response = await findGroupByIDFunc(id);
     res.send({
         ok : true,
@@ -69,7 +69,7 @@ export async function findGroupByID(req: Request, res: Response){
 };
 
 export async function deleteGroupByID(req: Request, res: Response){
-    let id = req.params.Groupid;
+    let id = req.params.group_id;
     let response = await deleteGroupByIDFunc(id);
     res.send({
         ok : true,

@@ -37,7 +37,8 @@ export async function findAllUser(req: Request, res: Response){
 };
 
 export async function findUserByID(req: Request, res: Response){
-    let id = req.params.groud_id;
+    let id = req.params.user_id;
+    console.log(id);
     let response = await findUserByIDFunc(id);
     res.send({
         ok : true,
@@ -46,7 +47,7 @@ export async function findUserByID(req: Request, res: Response){
 };
 
 export async function deleteUserByID(req: Request, res: Response){
-    let id = req.params.groud_id;
+    let id = req.params.user_id;
     let response = await deleteUserByIDFunc(id);
     res.send({
         ok : true,

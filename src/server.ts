@@ -34,8 +34,8 @@ app.post("/login", userLogin);
 
 app.post("/users", createUser);
 app.get("/users", findAllUser);
-app.get("/users/:userid", findUserByID);
-app.delete("/users/:userid", deleteUserByID);
+app.get("/users/:user_id", findUserByID);
+app.delete("/users/:user_id", deleteUserByID);
 
 app.post("/groups", createGroup);
 app.post("/groups/enter", enterGroup);
