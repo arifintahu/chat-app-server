@@ -73,17 +73,6 @@ io.on("connection", (socket) => {
         console.log(JSON.parse(message));
         io.emit("message", message);
     });
-    // socket.on("user", (data) => {
-    //     console.log(`topic/user user_id ${data.user_id} has been connected in group_id ${data.group_id}`);
-    // });
-    // socket.on("messageSend", (data) => {
-    //     console.log(JSON.stringify(data));
-    //     socket.broadcast.emit("messageReceive", {
-    //         user_id : data.user_id,
-    //         group_id : data.group_id,
-    //         msg : data.msg
-    //     });
-    // });
 });
 
 export function startServer(): Server {
