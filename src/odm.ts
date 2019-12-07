@@ -1,8 +1,12 @@
 import * as mongoose from "mongoose";
 
 //Config
+// const dbConfig = {
+//     url : "mongodb://localhost:27017/chat-app"
+// };
+
 const dbConfig = {
-    url : "mongodb://localhost:27017/chat-app"
+    url : "mongodb+srv://arifintahu:chat-app-server@cluster0-2fbfn.mongodb.net/test?retryWrites=true&w=majority"
 };
 const Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;

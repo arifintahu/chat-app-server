@@ -18,7 +18,7 @@ import { createMsg,
         findAllMsg,
         findAllMsgByGroupID } from "./services/msg.service";
 
-const CHAT_PORT = process.env["CHAT_PORT"] || 3000;
+const CHAT_PORT = process.env.PORT || 3000;
 const app = express();
 
 app.set("port", CHAT_PORT);
